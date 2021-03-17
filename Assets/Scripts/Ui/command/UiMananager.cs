@@ -10,8 +10,8 @@ public class UiMananager : MonoBehaviour
 {
 
     public static UiMananager _instance;
-
-    [SerializeField] private GameObject BeginPanle;
+    public Text text;
+    [SerializeField] private GameObject StartBtn;
     [SerializeField] private GameObject LoginPanle;
     [SerializeField] private GameObject RegPanle;
 
@@ -30,19 +30,25 @@ public class UiMananager : MonoBehaviour
         accountHandler = GameObject.Find("net").GetComponent<AccountHandler>();
         accountHandler.Login += Login;
         accountHandler.Reg += Reg;
+        StartBtn.BtnAddListener(StartBtnClick);
+        text.text = NetIO.Instance.ip;
     }
-
+    void Init() 
+    {
+        
+    }
+    public void StartBtnClick()
+    {
+        SoundMgr.Instance.play("BtnEffect","btnClick");
+        StartBtn.SetActive(false);
+        LoginPanle.SetActive(true);
+    }
     void OnDestroy()
     {
         accountHandler.Login -= Login;
         accountHandler.Reg -= Reg;
     }
 
-#region 服务器返回
-    /// <summary>
-    /// 返回登陆结果
-    /// </summary>
-    /// <param name="i"></param>
     void Login(int i)
     {
         switch (i)
@@ -100,18 +106,7 @@ public class UiMananager : MonoBehaviour
         NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
 
     }
-#endregion
-    #region BeginPanle
-
-    public void OnBeginPanleStartGameBtnClick()
-    {
-        BeginPanle.SetActive(false);
-        LoginPanle.SetActive(true);
-    }
-
-    #endregion
-
-    #region LoginPanle
+    
 
     public void OnLoginPanleLoginBtnClick()
     {
@@ -138,7 +133,7 @@ public class UiMananager : MonoBehaviour
     {
         loginPassword.text=String.Empty;
         LoginPanle.SetActive(false);
-        BeginPanle.SetActive(true);
+        StartBtn.SetActive(true);
         SetButtonState(true);
 
     }
@@ -152,10 +147,6 @@ public class UiMananager : MonoBehaviour
 
     }
 
-
-    #endregion
-
-    #region RegPanle
 
     public void OnRegPanleOkBtnClick()
     {
@@ -189,12 +180,12 @@ public class UiMananager : MonoBehaviour
         regPassword.text = String.Empty;
         regCountersignPassword.text = String.Empty;
         RegPanle.SetActive(false);
-        BeginPanle.SetActive(true);
+        StartBtn.SetActive(true);
         SetButtonState(true);
 
     }
 
-#endregion
+
 
     public void SetButtonState(bool isOn)
     {

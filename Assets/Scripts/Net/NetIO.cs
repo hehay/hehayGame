@@ -13,7 +13,7 @@ public class NetIO
 
         private Socket socket;
 
-        private string ip = "127.0.0.1";
+        public string ip = "127.0.0.1";
 
         private int port = 6650;
 

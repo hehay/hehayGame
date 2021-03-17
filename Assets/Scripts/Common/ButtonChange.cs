@@ -5,33 +5,41 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public enum Style
 {
-    背景显示隐藏 = 0,
-    缩放 = 1,
-    切换图片 = 2
+    BkHide = 0,
+    Scale,
+    ChangeImg,
+    ChangeColor
 }
 public class ButtonChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
 {
-    [Header("当前UI的样式")]//直接显示汉字在面板上
-    public Style 切换样式;
-    [Header("背景显示隐藏样式组")]//直接显示汉字在面板上
+    [Header("CurStyle")]//直接显示汉字在面板上
+    public Style style;
+    [Header("BkHide")]//直接显示汉字在面板上
     public GameObject backGroundImg;
-    [Header("切换图片样式组")]//直接显示汉字在面板上
-    public Image 切换图片的Image;
+    [Header("ChangeImg")]//直接显示汉字在面板上
+    public Image targetImg;
     public Sprite normalImg;
-    public Sprite highlightedImg;
+    public Sprite selectedImg;
+    [Header("ChangeColor")]
+    public Text targetText;
+    public Color normalColor;
+    public Color selectedColor;
    
     public void OnPointerEnter(PointerEventData eventData)
     {
 
-        switch (切换样式)
+        switch (style)
         {
-            case Style.背景显示隐藏:
+            case Style.BkHide:
                 backGroundImg.SetActive(true);
                 break;
-            case Style.缩放:
+            case Style.Scale:
                 break;
-            case Style.切换图片:
-                切换图片的Image.sprite = highlightedImg;
+            case Style.ChangeImg:
+                targetImg.sprite = selectedImg;
+                break;
+            case Style.ChangeColor:
+                targetText.color = selectedColor;
                 break;
             default:
                 break;
@@ -40,15 +48,18 @@ public class ButtonChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        switch (切换样式)
+        switch (style)
         {
-            case Style.背景显示隐藏:
+            case Style.BkHide:
                 backGroundImg.SetActive(false);
                 break;
-            case Style.缩放:
+            case Style.Scale:
                 break;
-            case Style.切换图片:
-                切换图片的Image.sprite = normalImg;
+            case Style.ChangeImg:
+                targetImg.sprite = normalImg;
+                break;
+            case Style.ChangeColor:
+                targetText.color = normalColor;
                 break;
             default:
                 break;
@@ -57,15 +68,18 @@ public class ButtonChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
     {
-        switch (切换样式)
+        switch (style)
         {
-            case Style.背景显示隐藏:
+            case Style.BkHide:
                 backGroundImg.SetActive(false);
                 break;
-            case Style.缩放:
+            case Style.Scale:
                 break;
-            case Style.切换图片:
-                切换图片的Image.sprite = normalImg;
+            case Style.ChangeImg:
+                targetImg.sprite = normalImg;
+                break;
+            case Style.ChangeColor:
+                targetText.color = normalColor;
                 break;
             default:
                 break;
