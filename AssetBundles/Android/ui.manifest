@@ -1,0 +1,62 @@
+ManifestFileVersion: 0
+CRC: 2617944265
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2248adac25b665e1f80a42e47b7caa3b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c90fc19e2679e5295d10bd00f33cb4c3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Ui/Controller.png
+- Assets/Ui/frame - 2.png
+- Assets/Ui/Input Background.png
+- Assets/Ui/tab - normal.png
+- Assets/Ui/background - wood.png
+- Assets/Ui/Window Frame.png
+- "Assets/Ui/pic_\u4FE1\u606F\u5E95.png"
+- "Assets/Ui/bg_\u9053\u5177.png"
+- "Assets/Ui/bg_\u6280\u80FD.png"
+- Assets/Ui/Ok.png
+- "Assets/Ui/pic_\u4F53\u529B.png"
+- Assets/Ui/Window.png
+- Assets/Ui/JoystickBackground.png
+- "Assets/Ui/\u80CC\u5305.png"
+- "Assets/Ui/NPC\u5BF9\u8BDD\u5E95\u677F1526x280.png"
+- Assets/Ui/Tab.png
+- "Assets/Ui/pic_\u4E2A\u4EBA\u4FE1\u606F.png"
+- Assets/Ui/bk.jpg
+- "Assets/Ui/bg_\u4EFB\u52A1.png"
+- Assets/Ui/Button Round.png
+- Assets/Ui/Button Blue B.png
+- Assets/Ui/Leave 2.png
+- Assets/Ui/Button Round Background.png
+- Assets/Ui/Tick.png
+- Assets/Ui/Tick Background.png
+- Assets/Ui/frame02.png
+- Assets/Ui/Title.png
+- Assets/Ui/Button Red B.png
+- Assets/Ui/Input Background Small.png
+- Assets/Ui/Title 2.png
+- "Assets/Ui/\u6280\u80FD3.png"
+- Assets/Ui/tab - selected.png
+- Assets/Ui/Button X.png
+- Assets/Ui/coin.png
+- Assets/Ui/frame - 1.png
+- Assets/Ui/music.png
+- Assets/Ui/file.jpg
+- Assets/Ui/X.png
+- Assets/Ui/Button Round Foreground.png
+- "Assets/Ui/bg_\u80CC\u5305.png"
+- "Assets/Ui/pic_\u5386\u7EC3.png"
+- Assets/Ui/Joystick.png
+- Assets/Ui/Leave.png
+- "Assets/Ui/btn_\u5173\u95ED1.png"
+- "Assets/Ui/\u6280\u80FD.png"
+Dependencies: []

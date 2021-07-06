@@ -30,19 +30,29 @@ public class UiMananager : MonoBehaviour
         accountHandler = GameObject.Find("net").GetComponent<AccountHandler>();
         accountHandler.Login += Login;
         accountHandler.Reg += Reg;
-        StartBtn.BtnAddListener(StartBtnClick);
-        text.text = NetIO.Instance.ip;
+        
+        //StartCoroutine(LoadAssetBundle());
     }
     void Init() 
     {
         
     }
-    public void StartBtnClick()
+    IEnumerator LoadAssetBundle()
     {
-        SoundMgr.Instance.play("BtnEffect","btnClick");
-        StartBtn.SetActive(false);
-        LoginPanle.SetActive(true);
+        text.text = "ReadMainFest1";
+        WWW www = new WWW("file:///E:/HehayAsset/AssetBundle/AssetBundle");
+        yield return www;
+        text.text = "ReadMainFest2";
+        AssetBundle ab = www.assetBundle;
+        if (ab != null) 
+        {
+            text.text = "ReadMainFest3";
+            AssetBundleManifest am = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+            text.text = "ReadMainFest4";
+        }
+    
     }
+    
     void OnDestroy()
     {
         accountHandler.Login -= Login;
@@ -95,15 +105,7 @@ public class UiMananager : MonoBehaviour
 
     void LoginGame()
     {
-        string account = UiMananager._instance.regAccount.text;
-        string pass = UiMananager._instance.regPassword.text;
-        // 向服务器发送注册消息
-        AccountDTO accountDto = new AccountDTO
-        {
-            account = account,
-            password = pass
-        };
-        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
+        
 
     }
     
