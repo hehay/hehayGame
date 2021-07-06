@@ -18,7 +18,7 @@ public class Modify : UIBase
      public override void OnEnter()
     {
         base.OnEnter();
-        confirmBtn.BtnAddAction();
+        confirmBtn.BtnAddAction(ClickConfirm,SoundType.Click);
      
     }
     public void ClickConfirm()
@@ -47,9 +47,9 @@ public class Modify : UIBase
             password = password.text
         };
 
-        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
 
-        SetButtonState(false);
+        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Modify_CREQ, accountDto);
+
     }
     
     public override void OnResume()
