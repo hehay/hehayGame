@@ -6,6 +6,8 @@ using Protocols.dto;
 public delegate void LoginEvent(int i);
 
 public delegate void RegEvent(int i);
+
+public delegate void ModifyEvent(int i);
 #endregion
     #region UserHandler
     /// <summary>

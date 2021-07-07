@@ -7,7 +7,7 @@ public class AccountHandler : MonoBehaviour ,IHandler{
 
     public void MessageReceive(SocketModel message)
     {
-        UiMananager._instance.SetButtonState(true);
+      
         switch (message.command)
         {
             case AccountProtocol.Login_SRES:
@@ -18,10 +18,15 @@ public class AccountHandler : MonoBehaviour ,IHandler{
                 int reg = message.GetMessage<int>();
                 Reg(reg);
                 break;
+            case AccountProtocol.Modify_SRES:
+                int mes = message.GetMessage<int>();
+                Modify(mes);
+                break;
         }
     }
 
     public LoginEvent Login;
     public RegEvent Reg;
+    public ModifyEvent Modify;
    
 }

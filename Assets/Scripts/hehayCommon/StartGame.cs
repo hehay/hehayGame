@@ -7,7 +7,7 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIManager.Instance.OpenUI(EUITYPE.StartUI);
+        UIManager.Ins.OpenUI(EUITYPE.StartUI);
     }
 
     // Update is called once per frame

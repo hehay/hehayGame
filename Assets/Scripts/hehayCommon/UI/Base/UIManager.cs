@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager Ins;
 
     public UIRoot UIRoot;
     Dictionary<EUITYPE, UIBase> _dicUIObj;                   //所有有缓存的UI索引
@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        Ins = this;
         UIRoot.Init();
 
         _dicUIObj = new Dictionary<EUITYPE, UIBase>();
@@ -38,8 +38,9 @@ public class UIManager : MonoBehaviour
             _dicVisibleUIObj.Add(addType, new List<UIBase>());
 
         }
+        UIManager.Ins.OpenUI(EUITYPE.StartUI);
     }
-
+    
     public void OpenUI(EUITYPE uiType, Action<UIBase> callBack = null)
     {
         UIBase ui = null;

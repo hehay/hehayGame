@@ -8,7 +8,6 @@ using DG.Tweening;
 public class StartUI : UIBase
  {
     public GameObject startBtn;
-    public GameObject login;
      public override void OnEnter()
     {
         base.OnEnter();
@@ -16,7 +15,8 @@ public class StartUI : UIBase
     }
     public void ClickStart()
     {
-        UIManager.Instance.OpenUI(EUITYPE.Login);
+        startBtn.gameObject.SetActive(false);
+        UIManager.Ins.OpenUI(EUITYPE.Login);
     }
     public override void OnResume()
     {

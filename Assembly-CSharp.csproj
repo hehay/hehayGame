@@ -149,7 +149,6 @@
     <Compile Include="Assets\Scripts\Ui\command\ChangeColorByScale.cs" />
     <Compile Include="Assets\Scripts\Ui\command\Joystick.cs" />
     <Compile Include="Assets\Scripts\Ui\command\Shortcut.cs" />
-    <Compile Include="Assets\Scripts\Ui\command\UiMananager.cs" />
     <Compile Include="Assets\Scripts\Ui\inventory\EquipGrid.cs" />
     <Compile Include="Assets\Scripts\Ui\inventory\EquipInfo.cs" />
     <Compile Include="Assets\Scripts\Ui\inventory\InventoryGridUi.cs" />
@@ -176,6 +175,7 @@
     <Compile Include="Assets\Scripts\hehayCommon\UI\GameMgr.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\Login.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\Modify.cs" />
+    <Compile Include="Assets\Scripts\hehayCommon\UI\RegUI.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\StartUI.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UnityExtend.cs" />
     <Compile Include="Assets\Scripts\play\AnimatorManage.cs" />

@@ -22,8 +22,8 @@ public class SoundMgr : MonoBehaviour
     void LoadRes()
     {
         btnSource = gameObject.AddComponent<AudioSource>();
-        audioClips = Resources.LoadAll<AudioClip>("BackgroundMusic");
-        background = transform.Find("Background").GetComponent<AudioSource>();
+        audioClips = Resources.LoadAll<AudioClip>("Music");
+        background = transform.Find("BkMusic").GetComponent<AudioSource>();
     }
     public void Play(string name)
     {

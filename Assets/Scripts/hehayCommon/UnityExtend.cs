@@ -40,6 +40,10 @@ public static class UnityExtend
         }
         else
         {
+            if (obj.GetComponent<Button>()) 
+            {
+                Debug.Log(obj.name+ "已经有Button组件了");
+            }
             bc = obj.AddComponent<ButtonChange>();
             BtnSound bs = obj.AddComponent<BtnSound>();
             bs.type = type;

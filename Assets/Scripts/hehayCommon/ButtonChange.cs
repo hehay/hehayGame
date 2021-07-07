@@ -68,7 +68,7 @@ public class ButtonChange : Button, IPointerEnterHandler, IPointerExitHandler/*,
         {
             case BtnStyle.HideBk:
                 backGroundImg.SetActive(false);
-                UIManager.Instance.ShowHyalineMask(true);
+                UIManager.Ins.ShowHyalineMask(true);
                 break;
             case BtnStyle.Scale:
                 Debug.Log(transform.name);
@@ -92,7 +92,7 @@ public class ButtonChange : Button, IPointerEnterHandler, IPointerExitHandler/*,
         {
             case BtnStyle.HideBk:
                 backGroundImg.SetActive(true);
-                UIManager.Instance.ShowHyalineMask(false);
+                UIManager.Ins.ShowHyalineMask(false);
                 break;
             case BtnStyle.Scale:
                 scaleTarget.transform.localScale = Vector3.one;

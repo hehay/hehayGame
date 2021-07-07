@@ -14,7 +14,7 @@ public class BtnSound : MonoBehaviour
         {
 
             case SoundType.Click:
-                SoundMgr.Instance.Play("buttonClick");
+                SoundMgr.Instance.Play("btnClick");
                 //SoundMgr.Instance.Play("act_rotate");
                 break;
             case SoundType.Close:

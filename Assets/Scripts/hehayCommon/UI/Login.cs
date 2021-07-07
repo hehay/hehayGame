@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Protocols.dto;
 using Protocols;
+using UnityEngine.SceneManagement;
 
 public class Login : UIBase
  {
@@ -14,16 +15,20 @@ public class Login : UIBase
     public GameObject loginBtn;
     public GameObject modifyBtn;
     public GameObject regBtn;
+    private AccountHandler accountHandler;
      public override void OnEnter()
     {
         base.OnEnter();
         loginBtn.BtnAddAction(ClickLogin,SoundType.Click);
         modifyBtn.BtnAddAction(ClickModify,SoundType.Click);
+        regBtn.BtnAddAction(ClickReg,SoundType.Click);
+        accountHandler = GameObject.Find("net").GetComponent<AccountHandler>();
+        accountHandler.Login += LoginReceive;
     }
     public void ClickLogin() 
     {
-        string account = UiMananager._instance.regAccount.text;
-        string pass = UiMananager._instance.regPassword.text;
+        string account = username.text;
+        string pass = password.text;
         // 向服务器发送注册消息
         AccountDTO accountDto = new AccountDTO
         {
@@ -33,15 +38,45 @@ public class Login : UIBase
         NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
 
     }
+    public void ClickReg() 
+    {
+        UIManager.Ins.OpenUI(EUITYPE.RegUI);
+        UIManager.Ins.CloseUI(this);
+    
+    }
     public void ClickModify() 
     {
-        UIManager.Instance.OpenUI(EUITYPE.Modify);
+        UIManager.Ins.OpenUI(EUITYPE.Modify);
     }
     public override void OnResume()
     {
         base.OnResume();
     }
+    public void LoginReceive(int i)
+    {
+        switch (i)
+        {
+            case -1://账号密码格式错误
+                WarrningManager.warringList.Add(new WarringModel("账号密码格式错误", null, 2));
+                break;
+            case -2://账号不存在
+                WarrningManager.warringList.Add(new WarringModel("账号不存在", null, 2));
+                break;
+            case -3://密码不匹配
+                WarrningManager.warringList.Add(new WarringModel("密码不匹配", null, 2));
+                break;
+            case -4://账号已登陆
+                WarrningManager.warringList.Add(new WarringModel("账号已登陆", null, 2));
+                break;
+            case 1://成功
+                // 跳转登录成功界面
+                Debug.Log("登陆成功！");
+                //UIManager.Ins.OpenUI(EUITYPE.RoleSelect);
+                //SceneManager.LoadScene(1);
+                break;
+        }
 
+    }
     public override void OnPause()
     {
        base.OnPause();

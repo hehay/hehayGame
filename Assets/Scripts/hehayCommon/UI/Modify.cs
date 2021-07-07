@@ -12,16 +12,20 @@ public class Modify : UIBase
     public InputField username;
     public InputField password;
     public InputField confirmPassword;
-    public GameObject confirmBtn;
+    public GameObject modifyBtn;
     public GameObject concelBtn;
+    private AccountHandler accountHandler;
 
      public override void OnEnter()
     {
         base.OnEnter();
-        confirmBtn.BtnAddAction(ClickConfirm,SoundType.Click);
+        modifyBtn.BtnAddAction(ClickModify,SoundType.Click);
+        concelBtn.BtnAddAction(ClickConcel,SoundType.Click);
+        accountHandler = GameObject.Find("net").GetComponent<AccountHandler>();
+        accountHandler.Modify += ModifyReceive;
      
     }
-    public void ClickConfirm()
+    public void ClickModify()
     {
         if (username.text.Length <= 3) 
         {
@@ -50,6 +54,30 @@ public class Modify : UIBase
 
         NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Modify_CREQ, accountDto);
 
+    }
+    public void ModifyReceive(int i) 
+    {
+        switch (i) 
+        {
+            case -1:
+                WarrningManager.warringList.Add(new WarringModel("账号密码格式错误", null, 2));
+                break;
+            case -2:
+                WarrningManager.warringList.Add(new WarringModel("没有此账号", null, 2));
+                break;
+            case -3:
+                WarrningManager.warringList.Add(new WarringModel("修改失败", null, 2));
+                break;
+            case 1:
+                WarrningManager.warringList.Add(new WarringModel("密码修改成功", null, 2));
+                break;
+        }
+    
+    }
+    public void ClickConcel() 
+    {
+        UIManager.Ins.CloseUI(this);
+    
     }
     
     public override void OnResume()

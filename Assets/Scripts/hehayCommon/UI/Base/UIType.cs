@@ -4,6 +4,8 @@
     PlayerUI,
     Modify,
     Login,
+    RoleSelect,
+    RegUI,
 
     NormalGame,
     MainSetting,
