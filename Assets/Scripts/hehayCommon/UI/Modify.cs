@@ -10,7 +10,8 @@ using Protocols;
 public class Modify : UIBase
  {
     public InputField username;
-    public InputField password;
+    public InputField oldPassword;
+    public InputField newPassword;
     public InputField confirmPassword;
     public GameObject modifyBtn;
     public GameObject concelBtn;
@@ -33,26 +34,31 @@ public class Modify : UIBase
             return;
         }
        
-        if (password.text.Length <= 3)
+        if (oldPassword.text.Length <= 3)
         {
             
-            WarrningManager.warringList.Add(new WarringModel("密码长度太短", null, 2));
+            WarrningManager.warringList.Add(new WarringModel("旧密码长度太短", null, 2));
             return;
         }
-        if (password.text != confirmPassword.text) 
+        if (newPassword.text.Length <= 3) 
+        {
+            WarrningManager.warringList.Add(new WarringModel("新密码长度太短", null, 2));
+            return;
+
+        }
+        if (newPassword.text != confirmPassword.text) 
         {
             WarrningManager.warringList.Add(new WarringModel("密码与确认密码不一致", null, 2));
             return;
         }
         // 向服务器发送登录请求
-        AccountDTO accountDto = new AccountDTO
+        ModifyDTO modifyDto = new ModifyDTO
         {
             account = username.text,
-            password = password.text
+            oldPassword = oldPassword.text,
+            newPassword =newPassword.text
         };
-
-
-        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Modify_CREQ, accountDto);
+        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Modify_CREQ, modifyDto);
 
     }
     public void ModifyReceive(int i) 
