@@ -7,7 +7,7 @@ using UnityEditor.ProjectWindowCallback;
 
 public class CreateUIBase : Editor
 {
-
+    
     [MenuItem("Assets/Create/UIBase", false, 82)]
     public static void CreatNewUICSharp()
     {
@@ -19,7 +19,7 @@ public class CreateUIBase : Editor
     }
 
 
-
+    
     public static string GetSelectedPathOrFallback()
     {
         string path = "Assets";
