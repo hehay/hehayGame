@@ -76,6 +76,8 @@ public class Modify : UIBase
                 break;
             case 1:
                 WarrningManager.warringList.Add(new WarringModel("密码修改成功", null, 2));
+                UIManager.Ins.OpenUI(EUITYPE.Login);
+                UIManager.Ins.CloseUI(this);
                 break;
         }
     

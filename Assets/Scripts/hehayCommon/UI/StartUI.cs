@@ -8,6 +8,7 @@ using DG.Tweening;
 public class StartUI : UIBase
  {
     public GameObject startBtn;
+
      public override void OnEnter()
     {
         base.OnEnter();

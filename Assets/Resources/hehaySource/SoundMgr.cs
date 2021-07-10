@@ -13,11 +13,29 @@ public class SoundMgr : MonoBehaviour
     private AudioSource btnSource;
     public AudioSource background;
     private AudioClip[] audioClips;
-
+    public Animator animator;
     private void Awake()
     {
         Instance = this;
         LoadRes();
+        StartCoroutine(Play());
+        
+    }
+    public IEnumerator Play() 
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            animator.Play("Rotate");
+            yield return new WaitForSeconds(2f);
+            animator.Play("Thankfull");
+            yield return new WaitForSeconds(2.0f);
+            animator.Play("Run");
+            yield return new WaitForSeconds(1.0f);
+            animator.Play("BreakDance");
+            yield return new WaitForSeconds(3.0f);
+            animator.Play("Pose");
+            yield return new WaitForSeconds(1.0f);
+        }
     }
     void LoadRes()
     {

@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public UIRoot UIRoot;
     Dictionary<EUITYPE, UIBase> _dicUIObj;                   //所有有缓存的UI索引
     Dictionary<EUILEVELTYPE, List<UIBase>> _dicVisibleUIObj; //所有可见的UI
-
+    
     public Camera UICamera()
     {
         Camera reCamera = null;
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
 
         }
         UIManager.Ins.OpenUI(EUITYPE.StartUI);
+
     }
     
     public void OpenUI(EUITYPE uiType, Action<UIBase> callBack = null)

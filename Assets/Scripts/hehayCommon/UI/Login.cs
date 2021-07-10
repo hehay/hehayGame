@@ -71,8 +71,9 @@ public class Login : UIBase
             case 1://成功
                 // 跳转登录成功界面
                 Debug.Log("登陆成功！");
-                //UIManager.Ins.OpenUI(EUITYPE.RoleSelect);
-                //SceneManager.LoadScene(1);
+                UIManager.Ins.OpenUI(EUITYPE.RoleSelect);
+                UIManager.Ins.CloseUI(this);
+                UIManager.Ins.CloseUI(EUITYPE.StartUI);
                 break;
         }
 

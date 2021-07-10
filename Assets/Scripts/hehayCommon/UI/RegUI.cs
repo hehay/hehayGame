@@ -64,7 +64,9 @@ public class RegUI : UIBase
                     password = password.text
                 };
                 NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
+                UIManager.Ins.OpenUI(EUITYPE.RoleSelect);
                 UIManager.Ins.CloseUI(this);
+                UIManager.Ins.CloseUI(EUITYPE.StartUI);
                 break;
         }
     }

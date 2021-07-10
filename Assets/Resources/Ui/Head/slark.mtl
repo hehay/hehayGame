@@ -1,0 +1,86 @@
+# 3ds Max Wavefront OBJ Exporter v0.94b - (c)2007 guruware
+# 创建的文件:08.08.2014 15:39:16
+
+newmtl 06___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_hood_color.tga
+	map_Kd D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_hood_color.tga
+
+newmtl 03___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_cape_color.tga
+	map_Kd D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_cape_color.tga
+
+newmtl 04___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_weapon_color.tga
+	map_Kd D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_weapon_color.tga
+
+newmtl 05___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_shoulder_color.tga
+	map_Kd D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_shoulder_color.tga
+
+newmtl 02___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_bracer_color.tga
+	map_Kd D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_bracer_color.tga
+
+newmtl _slark_modeldefault
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_color.tga
+	map_Kd D:\BaiduYunDownload\dota2\slark斯拉克\slark\materialsrc\models\heroes\slark\slark_color.tga
