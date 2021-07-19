@@ -26,7 +26,7 @@ public class NetIO
         /// <summary>
         /// 单例对象
         /// </summary>
-        public static NetIO Instance
+        public static NetIO Ins
         {
             get
             {
@@ -100,7 +100,7 @@ public class NetIO
             }
         }
 
-        public void Write(byte type, int area, int command, object message)
+        public void Send(byte type, int area, int command, object message)
         {
             count = 0;
             ByteArray ba = new ByteArray();

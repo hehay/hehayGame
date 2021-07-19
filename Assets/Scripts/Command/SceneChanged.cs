@@ -17,7 +17,7 @@ public class SceneChanged : MonoBehaviour
                 if (info.id == GameData.UserDto.id)
                 {
                     GameData.wantLoadScene = gotoScene;
-                    NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.LeaveMap_CREQ, null);
+                    NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.LeaveMap_CREQ, null);
                 }
             }
         }

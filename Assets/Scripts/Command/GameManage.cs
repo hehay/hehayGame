@@ -52,7 +52,7 @@ public class GameManage : MonoBehaviour
 	    map.Kill += Kill;
         if (GameData.lastScene < 3) //判断是不是在选择角色界面开始游戏，获取上次下线位置
         {
-            NetIO.Instance.Write(Protocol.Pos, 0, PosProtocol.GetPos_CREQ, null);
+            NetIO.Ins.Send(Protocol.Pos, 0, PosProtocol.GetPos_CREQ, null);
         }
         else
         {
@@ -65,7 +65,7 @@ public class GameManage : MonoBehaviour
                 spawan = spawanNext;
             }
         }
-        NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.EnterMap_CREQ,
+        NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.EnterMap_CREQ,
              GameData.UserDto);
 
 	}
@@ -400,7 +400,7 @@ public class GameManage : MonoBehaviour
         moveDto.dirx = 0;
         moveDto.diry = 0;
         moveDto.dirz = 0;
-        NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ, moveDto);
+        NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ, moveDto);
     }
 
 

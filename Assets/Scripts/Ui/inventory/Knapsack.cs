@@ -83,7 +83,7 @@ public class Knapsack : MonoBehaviour
         inventoryHandler.DeleteInventory += DeleteInventory;
         inventoryHandler.UpdateInventory += UpdateInventory;
         transform.localScale=Vector3.zero;
-        NetIO.Instance.Write(Protocol.Inventory,0,InventoryProtocol.GetInventory_CREQ,null);
+        NetIO.Ins.Send(Protocol.Inventory,0,InventoryProtocol.GetInventory_CREQ,null);
         if (GameData.UserDto != null)
         {
             SetHeadInfo(GameData.UserDto);
@@ -297,7 +297,7 @@ public class Knapsack : MonoBehaviour
 	void Update () {
 	    if (Input.GetMouseButtonDown(1))
 	    {
-	        NetIO.Instance.Write(Protocol.Inventory,0,InventoryProtocol.AddInventory_CREQ,2008);
+	        NetIO.Ins.Send(Protocol.Inventory,0,InventoryProtocol.AddInventory_CREQ,2008);
 	    }
 	}
 }

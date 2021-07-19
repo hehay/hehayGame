@@ -113,7 +113,7 @@ public class EquipInfo : MonoBehaviour
 
                 if (isFull)
                 {
-                    NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UnUseInventory_CREQ, itemDto.id);
+                    NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UnUseInventory_CREQ, itemDto.id);
                     equipGrid.Clear();
                     GameData.SetEquips((int)itemDto.inventory.equipType,0);
                 }

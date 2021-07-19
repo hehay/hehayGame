@@ -6,6 +6,7 @@
     Login,
     RoleSelect,
     RegUI,
+    ModelSelect,
 
     NormalGame,
     MainSetting,

@@ -32,7 +32,7 @@ public class InventoryGridUi : MonoBehaviour
         if (_itemDto.inventoryGridId != gridId)
         {
             _itemDto.inventoryGridId = gridId;
-            NetIO.Instance.Write(Protocol.Inventory,0,InventoryProtocol.UpdateInventory_CREQ,_itemDto);
+            NetIO.Ins.Send(Protocol.Inventory,0,InventoryProtocol.UpdateInventory_CREQ,_itemDto);
         }
 
         InventoryItemUi itemUi = GetComponentInChildren<InventoryItemUi>();

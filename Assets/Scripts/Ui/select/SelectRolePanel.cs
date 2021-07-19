@@ -24,7 +24,7 @@ public class SelectRolePanel : MonoBehaviour
     void Awake()
     {
         userHandler = GameObject.Find("net").GetComponent<UserHandler>();
-        NetIO.Instance.Write(Protocol.User,0,UserProtocol.GetRoleList_CREQ,null);
+        NetIO.Ins.Send(Protocol.User,0,UserProtocol.GetRoleList_CREQ,null);
         userHandler.GetRoleList += GetRoleList;
         userHandler.DeleteRole += DeleteRole;
         userHandler.OnLine += OnLine;
@@ -152,8 +152,8 @@ public class SelectRolePanel : MonoBehaviour
         {
             if (userDto != null)
             {
-                NetIO.Instance.Write(Protocol.Pos,0,PosProtocol.DeletePos_CREQ,null);
-                NetIO.Instance.Write(Protocol.User,0,UserProtocol.DeleteRole_CREQ,userDto);
+                NetIO.Ins.Send(Protocol.Pos,0,PosProtocol.DeletePos_CREQ,null);
+                NetIO.Ins.Send(Protocol.User,0,UserProtocol.DeleteRole_CREQ,userDto);
             }
         }
         /// <summary>
@@ -163,7 +163,7 @@ public class SelectRolePanel : MonoBehaviour
         {
             if (userDto != null)
             {
-                NetIO.Instance.Write(Protocol.User, 0, UserProtocol.OnLine_CREQ, userDto);
+                NetIO.Ins.Send(Protocol.User, 0, UserProtocol.OnLine_CREQ, userDto);
             }
             else
             {

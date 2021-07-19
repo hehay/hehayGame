@@ -58,7 +58,7 @@ public class Modify : UIBase
             oldPassword = oldPassword.text,
             newPassword =newPassword.text
         };
-        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Modify_CREQ, modifyDto);
+        NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Modify_CREQ, modifyDto);
 
     }
     public void ModifyReceive(int i) 

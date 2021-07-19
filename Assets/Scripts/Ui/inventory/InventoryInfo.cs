@@ -61,7 +61,7 @@ public class InventoryInfo : MonoBehaviour {
     {
         if (itemDto.id > 0 && itemDto != null&&CanvasManage._instance.shortcuts[itemDto.shortcutid-1].isCold==false)
         {
-            NetIO.Instance.Write(Protocol.Map,SceneManager.GetActiveScene().buildIndex,MapProtocol.UseInventory_CREQ,itemDto.id);           
+            NetIO.Ins.Send(Protocol.Map,SceneManager.GetActiveScene().buildIndex,MapProtocol.UseInventory_CREQ,itemDto.id);           
         }
         else
         {

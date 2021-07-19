@@ -95,7 +95,7 @@ public class Info : MonoBehaviour
                 idListList.Add(idList.ToArray());
             }
             damageDto.targets = idListList.ToArray();
-            NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Damage_CREQ, damageDto);
+            NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Damage_CREQ, damageDto);
         }
 
     }

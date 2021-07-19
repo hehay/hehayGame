@@ -30,6 +30,7 @@ public delegate void ModifyEvent(int i);
     /// </summary>
     /// <param name="i"></param>
     public delegate void OnLineEvent(UserDTO i);
+    public delegate void GetUserDtoEvent(UserDTO userDto);
     #endregion  
     
 

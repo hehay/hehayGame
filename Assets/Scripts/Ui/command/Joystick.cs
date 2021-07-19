@@ -73,7 +73,7 @@ public class Joystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (info != null)
         {
             if (info.state != AnimState.Die && info.state != AnimState.Control)
-                NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ,
+                NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ,
                     GetMoveDto(vertical, horizontal));
         }
     }

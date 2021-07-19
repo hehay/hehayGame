@@ -43,7 +43,7 @@ public class RegUI : UIBase
             password = password.text
         };
 
-        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Reg_CREQ, accountDto);
+        NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Reg_CREQ, accountDto);
     }
     public void RegReceive(int i) 
     {
@@ -63,7 +63,7 @@ public class RegUI : UIBase
                     account = username.text,
                     password = password.text
                 };
-                NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
+                NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Login_CREQ, accountDto);
                 UIManager.Ins.OpenUI(EUITYPE.RoleSelect);
                 UIManager.Ins.CloseUI(this);
                 UIManager.Ins.CloseUI(EUITYPE.StartUI);

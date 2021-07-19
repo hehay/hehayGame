@@ -87,18 +87,18 @@ public class Shortcut : MonoBehaviour
         if (SkillDto != null&&SkillDto.shortcutId>0)
         {
             SkillDto.shortcutId = 0;
-            NetIO.Instance.Write(Protocol.Skill, 0, SkillProtocol.Updateskill_CREQ, SkillDto);
+            NetIO.Ins.Send(Protocol.Skill, 0, SkillProtocol.Updateskill_CREQ, SkillDto);
         }
         else if (SkillDto != null && SkillDto.shortcutId > 0)
         {
             InventoryItemDto.shortcutid = 0;
-            NetIO.Instance.Write(Protocol.Inventory, 0, InventoryProtocol.UpdateInventory_CREQ, InventoryItemDto);
+            NetIO.Ins.Send(Protocol.Inventory, 0, InventoryProtocol.UpdateInventory_CREQ, InventoryItemDto);
         }
         ClearLastGridInfo(skillDto);
 
         skillDto.shortcutId = shortcutId;
         SkillDto = skillDto;
-        NetIO.Instance.Write(Protocol.Skill, 0, SkillProtocol.Updateskill_CREQ, SkillDto);
+        NetIO.Ins.Send(Protocol.Skill, 0, SkillProtocol.Updateskill_CREQ, SkillDto);
 
     }
 
@@ -113,18 +113,18 @@ public class Shortcut : MonoBehaviour
         if (SkillDto != null && SkillDto.shortcutId > 0)
         {
             SkillDto.shortcutId = 0;
-            NetIO.Instance.Write(Protocol.Skill, 0, SkillProtocol.Updateskill_CREQ, SkillDto);
+            NetIO.Ins.Send(Protocol.Skill, 0, SkillProtocol.Updateskill_CREQ, SkillDto);
         }
         else if (SkillDto != null && SkillDto.shortcutId > 0)
         {
             InventoryItemDto.shortcutid = 0;
-            NetIO.Instance.Write(Protocol.Inventory, 0, InventoryProtocol.UpdateInventory_CREQ, InventoryItemDto);
+            NetIO.Ins.Send(Protocol.Inventory, 0, InventoryProtocol.UpdateInventory_CREQ, InventoryItemDto);
         }
         ClearLastGridInfo(InventoryItemDto);
 
         itemDto.shortcutid = shortcutId;
         InventoryItemDto = itemDto;
-        NetIO.Instance.Write(Protocol.Inventory, 0, InventoryProtocol.UpdateInventory_CREQ, InventoryItemDto);
+        NetIO.Ins.Send(Protocol.Inventory, 0, InventoryProtocol.UpdateInventory_CREQ, InventoryItemDto);
     }
     public void OnClick()
     {
@@ -132,7 +132,7 @@ public class Shortcut : MonoBehaviour
         if(info.state==AnimState.Die||info.state==AnimState.Control)return;
         if (type == Type.Attack)
         {
-            NetIO.Instance.Write(Protocol.Map,SceneManager.GetActiveScene().buildIndex,MapProtocol.Attack_CREQ,GetEmeny(dis,range));
+            NetIO.Ins.Send(Protocol.Map,SceneManager.GetActiveScene().buildIndex,MapProtocol.Attack_CREQ,GetEmeny(dis,range));
         }
         else if (type == Type.Skill)
         {
@@ -141,7 +141,7 @@ public class Shortcut : MonoBehaviour
                 SkillAttackDTO skillAttackDto = new SkillAttackDTO();
                 skillAttackDto.targetsId = GetEmeny(dis, range);
                 skillAttackDto.skillDto = SkillDto;
-                NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Skill_CREQ, skillAttackDto);
+                NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Skill_CREQ, skillAttackDto);
             }
             else
             {
@@ -170,7 +170,7 @@ public class Shortcut : MonoBehaviour
 
             if (InventoryItemDto.id > 0 && InventoryItemDto != null&&isCold==false)
             {
-                NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UseInventory_CREQ, InventoryItemDto.id);
+                NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UseInventory_CREQ, InventoryItemDto.id);
                 SetCold();
             }
             else

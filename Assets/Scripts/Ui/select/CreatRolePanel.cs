@@ -60,7 +60,7 @@ public class CreatRolePanel : MonoBehaviour
                     cam.transform.rotation = quaternion;
                     this.gameObject.SetActive(false);
                     selectPanle.gameObject.SetActive(true);
-                    NetIO.Instance.Write(Protocol.User, 0, UserProtocol.GetRoleList_CREQ, null);
+                    NetIO.Ins.Send(Protocol.User, 0, UserProtocol.GetRoleList_CREQ, null);
                     break;
 
             }
@@ -104,7 +104,7 @@ public class CreatRolePanel : MonoBehaviour
         userDto.name = nameInput.text;
         userDto.modelName = int.Parse(selectRole.name);
         // 发送创建角色信息
-        NetIO.Instance.Write(Protocol.User,0,UserProtocol.CreateRole_CREQ,userDto);
+        NetIO.Ins.Send(Protocol.User,0,UserProtocol.CreateRole_CREQ,userDto);
        
     }
 

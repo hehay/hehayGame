@@ -28,7 +28,7 @@ public class Move : MonoBehaviour
 	    {
             if (oldVector3 != new Vector3(x, 0, y))
             {
-                NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ, GetMoveDto(x, y));
+                NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ, GetMoveDto(x, y));
                 isMove = true;
             }
 	        
@@ -37,7 +37,7 @@ public class Move : MonoBehaviour
 	    {
 	        if (isMove)
 	        {
-                NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ, GetMoveDto(x, y));
+                NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Move_CREQ, GetMoveDto(x, y));
 	            isMove = false;
 	        }            
 	    }

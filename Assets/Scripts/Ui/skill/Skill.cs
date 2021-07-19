@@ -21,7 +21,7 @@ public class Skill : MonoBehaviour
 	    skillHandler.GetSkillList += GetSkillList;
 	    skillHandler.SkillUp += SkillUp;
 	    skillHandler.UpdateSkill += UpdateSkill;
-        NetIO.Instance.Write(Protocol.Skill,0,SkillProtocol.GetskillList_CREQ,null);
+        NetIO.Ins.Send(Protocol.Skill,0,SkillProtocol.GetskillList_CREQ,null);
         transform.localScale=Vector3.zero;
 	}
 

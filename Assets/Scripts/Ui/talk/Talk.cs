@@ -227,11 +227,11 @@ public class Talk : MonoBehaviour
         {
             case "世界":
                 talkDto.talkType=TalkType.Word;
-                NetIO.Instance.Write(Protocol.Map, -1, MapProtocol.Talk_CREQ, talkDto);
+                NetIO.Ins.Send(Protocol.Map, -1, MapProtocol.Talk_CREQ, talkDto);
                 break;
                  case "场景":
                 talkDto.talkType = TalkType.Scene;
-                NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Talk_CREQ,
+                NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.Talk_CREQ,
                     talkDto);
                 break;
                  case "私聊":
@@ -239,7 +239,7 @@ public class Talk : MonoBehaviour
                 {
                     talkDto.talkType = TalkType.One;
                     talkDto.receiverid = receiverid;
-                    NetIO.Instance.Write(Protocol.Map,-1, MapProtocol.Talk_CREQ,
+                    NetIO.Ins.Send(Protocol.Map,-1, MapProtocol.Talk_CREQ,
                         talkDto);
                 }
                 else

@@ -32,7 +32,7 @@ public class EquipGrid : MonoBehaviour
         {
             ItemDto.inventoryGridId = itemDto.inventoryGridId;
             itemDto.IsDressed = false;
-            NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UnUseInventory_CREQ, ItemDto.id);
+            NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UnUseInventory_CREQ, ItemDto.id);
         }
         image.gameObject.SetActive(true);
         ItemDto = itemDto;
@@ -40,7 +40,7 @@ public class EquipGrid : MonoBehaviour
         image.sprite = Resources.Load<Sprite>("Ui/Inventory/" + itemDto.inventory.icon);
         if (!itemDto.IsDressed)
         {
-            NetIO.Instance.Write(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UseInventory_CREQ, itemDto.id);    
+            NetIO.Ins.Send(Protocol.Map, SceneManager.GetActiveScene().buildIndex, MapProtocol.UseInventory_CREQ, itemDto.id);    
         }
     }
 

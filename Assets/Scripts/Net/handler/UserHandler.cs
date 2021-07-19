@@ -24,6 +24,9 @@ public class UserHandler : MonoBehaviour,IHandler {
             case UserProtocol.OnLine_SRES:
                 OnLine(message.GetMessage<UserDTO>());
                 break;
+            case UserProtocol.GetUserDt_SRES:
+                GetUserDto(message.GetMessage<UserDTO>());
+                break;
         }
     }
 
@@ -31,4 +34,5 @@ public class UserHandler : MonoBehaviour,IHandler {
     public CreateRoleEvent CreateRole;
     public DeleteRoleEvent DeleteRole;
     public OnLineEvent OnLine;
+    public GetUserDtoEvent GetUserDto;
 }

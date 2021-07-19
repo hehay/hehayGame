@@ -60,7 +60,7 @@ public class SyncMove : MonoBehaviour
             oldSelfVector3 = transform.position;
             PosDto posDto = new PosDto(GameData.UserDto.id, transform.position.x, transform.position.y,
                 transform.position.z, transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
-            NetIO.Instance.Write(Protocol.Pos, 0, PosProtocol.UpdatePos_CREQ, posDto);
+            NetIO.Ins.Send(Protocol.Pos, 0, PosProtocol.UpdatePos_CREQ, posDto);
 
         }
     }

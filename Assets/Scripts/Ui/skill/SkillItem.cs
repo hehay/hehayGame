@@ -92,7 +92,7 @@ public class SkillItem : MonoBehaviour
     }
     public void Button()
     {
-        NetIO.Instance.Write(Protocol.Skill,0,SkillProtocol.SkillUp_CREQ,SkillDto.id);
+        NetIO.Ins.Send(Protocol.Skill,0,SkillProtocol.SkillUp_CREQ,SkillDto.id);
         button.SetActive(false);
     }
 }

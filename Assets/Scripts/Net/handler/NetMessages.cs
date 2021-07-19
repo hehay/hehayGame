@@ -24,11 +24,11 @@ public class NetMessages : MonoBehaviour
 	}
 	
 	void Update () {
-	    while (NetIO.Instance.messages.Count>0)
+	    while (NetIO.Ins.messages.Count>0)
 	    {
-	        SocketModel model = NetIO.Instance.messages[0];
-            StartCoroutine("MessagesReceive", model);
-	        NetIO.Instance.messages.RemoveAt(0);
+	        SocketModel model = NetIO.Ins.messages[0];
+            MessagesReceive(model);
+	        NetIO.Ins.messages.RemoveAt(0);
 	    }
 	   
 	}
@@ -37,7 +37,7 @@ public class NetMessages : MonoBehaviour
     {
         switch (model.type)
         {
-            case Protocol.Accaount:
+            case Protocol.Account:
                 account.MessageReceive(model);
                 break;
             case Protocol.User:

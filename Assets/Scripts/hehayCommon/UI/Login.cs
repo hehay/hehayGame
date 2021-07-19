@@ -35,7 +35,7 @@ public class Login : UIBase
             account = account,
             password = pass
         };
-        NetIO.Instance.Write(Protocol.Accaount, 0, AccountProtocol.Login_CREQ, accountDto);
+        NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Login_CREQ, accountDto);
 
     }
     public void ClickReg() 
@@ -71,7 +71,7 @@ public class Login : UIBase
             case 1://成功
                 // 跳转登录成功界面
                 Debug.Log("登陆成功！");
-                UIManager.Ins.OpenUI(EUITYPE.RoleSelect);
+                UIManager.Ins.OpenUI(EUITYPE.ModelSelect);
                 UIManager.Ins.CloseUI(this);
                 UIManager.Ins.CloseUI(EUITYPE.StartUI);
                 break;
