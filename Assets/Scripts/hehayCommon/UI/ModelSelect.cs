@@ -6,10 +6,12 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Protocols;
 using Protocols.dto;
+using System;
 
 public class ModelSelect : UIBase
  {
     public Text goldText;
+    public Text timeText;
     private UserHandler userHandler;
      public override void OnEnter()
     {
@@ -22,7 +24,14 @@ public class ModelSelect : UIBase
     {
         goldText.text = userData.gold.ToString();
     }
-   
+    public void SetTimeText()
+    {
+        timeText.text = new TimeSpan(0, 0, (int)(DateTime.Today.AddHours(24) - DateTime.Now).TotalSeconds).ToString();
+    }
+    private void Update()
+    {
+        SetTimeText();
+    }
     public override void OnResume()
     {
         base.OnResume();

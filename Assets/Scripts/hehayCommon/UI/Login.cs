@@ -37,6 +37,16 @@ public class Login : UIBase
         };
         NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Login_CREQ, accountDto);
 
+
+    }
+    private void Update()
+    {
+        
+    }
+    public IEnumerator GetMessage() 
+    {
+        yield return new WaitForSeconds(60);
+        NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Login_CREQ, null);
     }
     public void ClickReg() 
     {
