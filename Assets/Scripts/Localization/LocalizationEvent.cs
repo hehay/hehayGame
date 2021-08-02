@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public delegate void CallBack();
-
 public class LocalizationEvent
 {
     private static Dictionary<LocalizationEventType, Delegate> dicEvents = new Dictionary<LocalizationEventType, Delegate>();

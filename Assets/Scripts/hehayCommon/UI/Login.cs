@@ -24,6 +24,13 @@ public class Login : UIBase
         regBtn.BtnAddAction(ClickReg,SoundType.Click);
         accountHandler = GameObject.Find("net").GetComponent<AccountHandler>();
         accountHandler.Login += LoginReceive;
+        //直接登陆
+        AccountDTO accountDto = new AccountDTO
+        {
+            account = "hehay",
+            password = "1234"
+        };
+        NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Login_CREQ, accountDto);
     }
     public void ClickLogin() 
     {
@@ -39,15 +46,8 @@ public class Login : UIBase
 
 
     }
-    private void Update()
-    {
-        
-    }
-    public IEnumerator GetMessage() 
-    {
-        yield return new WaitForSeconds(60);
-        NetIO.Ins.Send(Protocol.Account, 0, AccountProtocol.Login_CREQ, null);
-    }
+ 
+  
     public void ClickReg() 
     {
         UIManager.Ins.OpenUI(EUITYPE.RegUI);

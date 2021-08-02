@@ -7,6 +7,9 @@
     RoleSelect,
     RegUI,
     ModelSelect,
+    Qualify,
+    Match,
+    Waiting,
 
     NormalGame,
     MainSetting,

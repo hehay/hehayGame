@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Protocols;
+using Protocols.dto;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

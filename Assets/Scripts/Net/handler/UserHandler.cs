@@ -27,6 +27,12 @@ public class UserHandler : MonoBehaviour,IHandler {
             case UserProtocol.GetUserDt_SRES:
                 GetUserDto(message.GetMessage<UserDTO>());
                 break;
+            case UserProtocol.Battle_SRES:
+                BattleReceive(message.GetMessage<List<MatchDTO>>());
+                break;
+            case UserProtocol.Match_SRES:
+                MatchReceive(message.GetMessage<List<MatchDTO>>());
+                break;
         }
     }
 
@@ -35,4 +41,7 @@ public class UserHandler : MonoBehaviour,IHandler {
     public DeleteRoleEvent DeleteRole;
     public OnLineEvent OnLine;
     public GetUserDtoEvent GetUserDto;
+    public CallBack<List<MatchDTO>> BattleReceive;
+    public CallBack<List<MatchDTO>> MatchReceive;
+    public CallBack<int> StartQualify;
 }

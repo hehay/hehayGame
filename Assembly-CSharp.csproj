@@ -174,10 +174,13 @@
     <Compile Include="Assets\Scripts\hehayCommon\UI\Base\UIType.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\GameMgr.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\Login.cs" />
+    <Compile Include="Assets\Scripts\hehayCommon\UI\Match.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\ModelSelect.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\Modify.cs" />
+    <Compile Include="Assets\Scripts\hehayCommon\UI\Qualify.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\RegUI.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UI\StartUI.cs" />
+    <Compile Include="Assets\Scripts\hehayCommon\UI\Waiting.cs" />
     <Compile Include="Assets\Scripts\hehayCommon\UnityExtend.cs" />
     <Compile Include="Assets\Scripts\play\AnimatorManage.cs" />
     <Compile Include="Assets\Scripts\play\Info.cs" />
